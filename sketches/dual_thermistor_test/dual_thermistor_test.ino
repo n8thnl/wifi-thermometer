@@ -41,14 +41,14 @@ void loop() {
   float v_glass = v_at_analog_pin(ADC_PIN_GLASS);
   float v_bead  = v_at_analog_pin(ADC_PIN_BEAD);
 
-  Serial.println("v_glass: " + String(v_glass));
-  Serial.println("v_bead: " + String(v_bead));
+  // Serial.println("v_glass: " + String(v_glass));
+  // Serial.println("v_bead: " + String(v_bead));
 
   float r_glass = find_unknown_R_given_drop(v_glass, KNOWN_RESISTANCE);
   float r_bead  = find_unknown_R_given_drop(v_bead,  KNOWN_RESISTANCE);
 
-  Serial.println("r_glass: " + String(r_glass));
-  Serial.println("r_bead: " + String(r_bead));
+  // Serial.println("r_glass: " + String(r_glass));
+  // Serial.println("r_bead: " + String(r_bead));
 
   float temp_C_glass = temp_K_to_C(temp_K_from_R_10k(B_GLASS, r_glass));
   float temp_C_bead  = temp_K_to_C(temp_K_from_R_10k(B_BEAD,  r_bead));
@@ -56,7 +56,6 @@ void loop() {
   float temp_F_glass = temp_C_to_F(temp_C_glass);
   float temp_F_bead  = temp_C_to_F(temp_C_bead);
 
-  Serial.println("global count: " + String(global_count++));
   Serial.println("glass temp F: " + String(temp_F_glass));
   Serial.println("bead temp F: " + String(temp_F_bead));
   Serial.println("");
